@@ -1,0 +1,21 @@
+<div [hidden]="submitted" style="width: 400px;">
+    <form #empForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Employee Name</label>
+        <input type="text" class="form-control" id="employeeName" required [(ngModel)]="employeeData.employeeName" name="employeeName">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Designation</label>
+        <input type="text" class="form-control" id="designation" required [(ngModel)]="employeeData.designation" name="designation">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Salary</label>
+        <input type="text" class="form-control" id="salary" required [(ngModel)]="employeeData.salary" name="salary">
+      </div>
+  
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button type = "submit" class = "btn btn-danger" (click)= "goBack()">Back</button>
+    </form>
+  </div>

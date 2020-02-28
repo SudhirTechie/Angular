@@ -1,0 +1,39 @@
+<div *ngIf = "showFlag == false" class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Employees</h1>
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="query" id="listSearch">
+        
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table .table-bordered table-pink">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>DateOfJoining</th>
+                    <th>Actionss</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employeeList | filter: query">
+                    <td>{{employee.employeeName}}</td>
+                    <td>{{employee.designation}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>{{employee.date}}</td>
+                    <td><button (click)="deleteEmployee(employee.employeeId)"class="btn btn-outline-danger"style="margin-left: 10px">Delete</button>
+                    <button (click)="updateEmployee(employee.employeeId)"class="btn btn-outline-dark" style="margin-left: 10px">Update</button>
+                   <button (click)="detailsEmployee(employee.employeeId)" class="btn btn-outline-success" style="margin-left: 10px">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-detailsinfo  *ngIf="employeeData || showFlag == true" [employeeDetails] ="employeeData"></app-detailsinfo>
+<div *ngIf = "showFlag == true" class="panel panel-default"> 
+<app-updateemp *ngIf = "employeeList" (valueChange) ="showToaster($event)"></app-updateemp> 
+</div>

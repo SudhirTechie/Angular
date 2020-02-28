@@ -1,0 +1,18 @@
+<h2>Employee Details</h2> 
+
+<hr/>
+<div *ngIf="employeeDetails">
+  <div>
+    <label><b>Employee Name: </b></label> {{employeeDetails.employeeName}}
+  </div>
+  <div>
+    <label><b>Designation: </b></label> {{employeeDetails.designation}}
+  </div>
+  <div>
+    <label><b>Email Id: </b></label> {{employeeDetails.email}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="back()" class="btn btn-primary">Back</button><br>
